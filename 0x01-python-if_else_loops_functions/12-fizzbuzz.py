@@ -12,3 +12,4 @@ def fizzbuzz():
             print(num, end=" ")
             
 fizzbuzz()
+print()
