@@ -7,4 +7,3 @@ def uppercase(str):
             print("{}".format(chr(ord(char) + offset)), end="")
         else:
             print("{}".format(char), end="")
-    print()
