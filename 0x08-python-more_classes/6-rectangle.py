@@ -9,7 +9,8 @@ class Rectangle:
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        """Initialize the Rectangle with optional width and height attributes."""
+        """Initialize the Rectangle with optional
+        width and height attributes."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -53,7 +54,8 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Generate a string representation of the rectangle using '#' symbols."""
+        """Generate a string representation of
+        the rectangle using '#' symbols."""
         if self.__width == 0 or self.__height == 0:
             return ""
         rectangle_str = ""
@@ -68,6 +70,7 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Print a message when an instance of Rectangle is deleted and decrement the number_of_instances attribute."""
+        """Print a message when an instance of Rectangle
+        is deleted and decrement the number_of_instances attribute."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
