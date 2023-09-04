@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+
+"""Rectangle module."""
+
+
 class Rectangle:
+    """Rectangle Class."""
+
     def __init__(self, width=0, height=0):
         """Initialize the Rectangle with optional width
         and height attributes."""
