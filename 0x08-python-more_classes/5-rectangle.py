@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 class Rectangle:
     def __init__(self, width=0, height=0):
-        """Initialize the Rectangle with optional width and height attributes."""
+        """Initialize the Rectangle with optional width
+        and height attributes."""
         self.width = width
         self.height = height
 
@@ -44,7 +45,8 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Generate a string representation of the rectangle using '#' symbols."""
+        """Generate a string representation of
+        the rectangle using '#' symbols."""
         if self.__width == 0 or self.__height == 0:
             return ""
         rectangle_str = ""
