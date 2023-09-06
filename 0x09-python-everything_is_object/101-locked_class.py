@@ -4,8 +4,7 @@
 
 
 class LockedClass:
-    """Body of LockedClass class
-    """
+    """Body of LockedClass class"""
     def __setattr__(self, name, val):
         """Limits which attributes can be set"""
         if name == "first_name":
