@@ -1,29 +1,63 @@
->>> add_integer = __import__('0-add_integer').add_integer
-	>>> add_integer(1)
-	99
-	>>> add_integer(1,2)
-	3
-	>>> add_integer(3.14)
-	101
-	>>> add_integer()
-	Traceback (most recent call last):
-  	...
-	TypeError: add_integer() missing 1 required positional argument: 'a'
-	>>> add_integer("f")
-	Traceback (most recent call last):
-  	...
-	TypeError: a must be an integer
-	>>> add_integer("f", "j")
-	Traceback (most recent call last):
-  	...
-	TypeError: a must be an integer
-	>>> add_integer(2, "f")
-	Traceback (most recent call last):
-  	...
-	TypeError: b must be an integer
-	>>> add_integer(-3)
-	95
-	>>> add_integer(-3, 1)
-	-2
-	>>> type(add_integer(-3, 1))
-	<class 'int'>
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file
+``add_integer`` from the ``0-add_integer`` module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+	Now use it:
+    
+    >>> add_integer(2)
+    100
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    >>> add_integer(2, 4)
+    6
+
+    >>> add_integer(3, '2')
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer('aaa', 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(4, "Best")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer(-3)
+    95
+
+    >>> add_integer(-2, 15.7) 
+    13
+
+    >>> add_integer("a", "b")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> type(add_integer(1, 2))
+    <class 'int'>
+
+    >>> add_integer(float("nan"), 4)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(float("inf"), 5)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(10/float("inf"), 6)
+    6
