@@ -1,25 +1,20 @@
 #!/usr/bin/python3
 
-"""
-Converts an object to a JSON-serializable data structure.
-
-:param obj: The object to be converted.
-:return: The JSON-serializable representation of the object.
-"""
-
-
 def class_to_json(obj):
-    if isinstance(obj, list):
-        return [class_to_json(item) for item in obj]
-    elif isinstance(obj, dict):
-        return {key: class_to_json(value) for key, value in obj.items()}
-    elif isinstance(obj, str):
-        return obj
-    elif isinstance(obj, int):
-        return obj
-    elif isinstance(obj, bool):
-        return obj
-    else:
-        raise TypeError(
-            "Object of type {} is not JSON serializable".format(type(obj))
-        )
+    """
+    Returns a dictionary representation of an object for JSON serialization.
+
+    Args:
+        obj: An instance of a class with serializable attributes.
+
+    Returns:
+        dict: A dictionary containing serializable attributes of the object.
+
+    """
+    json_dict = {}
+
+    for attr, value in obj.__dict__.items():
+        if isinstance(value, (list, dict, str, int, bool)):
+            json_dict[attr] = value
+
+    return json_dict
