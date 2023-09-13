@@ -3,27 +3,12 @@
 
 
 class MyInt(int):
+    """invert this two operators"""
 
     def __eq__(self, other):
-        """
-        Override the equality (==) operator to invert its behavior.
-
-        Args:
-            other: The value to compare with.
-
-        Returns:
-            bool: True if the values are not equal, False otherwise.
-        """
-        return super().__ne__(other)
+        """is equal"""
+        return self.real != other
 
     def __ne__(self, other):
-        """
-        Override the inequality (!=) operator to invert its behavior.
-
-        Args:
-            other: The value to compare with.
-
-        Returns:
-            bool: True if the values are equal, False otherwise.
-        """
-        return super().__eq__(other)
+        """not equal"""
+        return self.real == other
