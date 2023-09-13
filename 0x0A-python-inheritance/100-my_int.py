@@ -3,6 +3,7 @@
 
 
 class MyInt(int):
+
     def __eq__(self, other):
         """
         Override the equality (==) operator to invert its behavior.
