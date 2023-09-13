@@ -20,4 +20,6 @@ def class_to_json(obj):
     elif isinstance(obj, bool):
         return obj
     else:
-        raise TypeError("Object of type {} is not JSON serializable".format(type(obj)))
+        raise TypeError(
+            "Object of type {} is not JSON serializable".format(type(obj))
+        )
