@@ -6,30 +6,18 @@ Define a class of Student
 
 class Student:
     def __init__(self, first_name, last_name, age):
-        """
-        Initializes a Student instance with first_name, last_name, and age.
-
-        Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
-
-        """
+        """initialize all attributes"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
-        Retrieves a dictionary representation of a Student instance.
-
-        Returns:
-            dict: A dictionary containing the attributes of the Student.
-
+        If attrs is a list of strings, only attribute names
+        contained in this list must be retrieved.
+        Otherwise, all attributes must be retrieved
         """
-        student_dict = {
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'age': self.age
-        }
-        return student_dict
+        if (isinstance(attrs, list) and
+                all(isinstance(ele, str) for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__
