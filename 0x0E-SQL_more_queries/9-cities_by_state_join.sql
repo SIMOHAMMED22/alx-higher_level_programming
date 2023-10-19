@@ -3,7 +3,7 @@
 -- mysql -u your_admin_username -p your_database_name
 
 -- Select all cities with their corresponding state names
-SELECT cities.id, cities.name, states.name AS state_name
+SELECT cities.id, cities.name, states.name
 FROM cities
 LEFT JOIN states ON cities.state_id = states.id
 ORDER BY cities.id;
