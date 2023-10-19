@@ -1,12 +1,4 @@
--- Connect to the MySQL server
--- You can use the following command to connect to the MySQL server:
--- mysql -u your_admin_username -p
-
--- Create or update user user_0d_1 with all privileges
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
-
--- Grant all privileges to user_0d_1
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
-
--- Flush privileges to apply the changes
-FLUSH PRIVILEGES;
+-- creates the database amd grand privilge hbtn_0d_2 and the user user_0d_2.
+CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
+CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_2_pwd';
+GRANT SELECT ON hbtn_0d_2.* TO 'user_0d_2'@'localhost';
