@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""getting started with the python module MySQLdb"""
 import sys
 import MySQLdb
 
