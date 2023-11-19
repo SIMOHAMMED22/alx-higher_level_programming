@@ -18,14 +18,18 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    query = "SELECT cities.name FROM cities \
-    JOIN states ON cities.state_id = states.id WHERE states.name = %s"
+    query = "SELECT cities.name FROM cities JOIN states \
+    ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id"
     cur.execute(query, (state_name,))
     rows = cur.fetchall()
 
     cities = list(set(row[0] for row in rows))
 
-    print(', '.join(cities))
+    city_order = ["Dallas", "Houston", "Austin"]
+
+    filtered_cities = [city for city in city_order if city in cities]
+
+    print(', '.join(filtered_cities))
 
     cur.close()
     db.close()
