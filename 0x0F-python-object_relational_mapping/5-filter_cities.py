@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Create a cursor object using the cursor() method"""
-
+"""getting started with the python module MySQLdb"""
 import sys
 import MySQLdb
 
@@ -19,16 +18,14 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-
-    query = "SELECT cities.id, cities.name, states.name \
-    FROM cities JOIN states ON cities.state_id = states.id \
-    WHERE states.name = %s ORDER BY cities.id"
+    query = "SELECT cities.name FROM cities \
+    JOIN states ON cities.state_id = states.id WHERE states.name = %s"
     cur.execute(query, (state_name,))
-
     rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
+    cities = list(set(row[0] for row in rows))
+
+    print(', '.join(cities))
 
     cur.close()
     db.close()
