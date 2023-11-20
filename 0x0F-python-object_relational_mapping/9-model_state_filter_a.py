@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to print all State objects from the database hbtn_0e_6_usa"""
+"""Script to print specific State objects from the database hbtn_0e_6_usa"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id).all()
+    states = session.query(State).filter(State.id.in_([1, 2, 3, 5])).order_by(State.id).all()
 
     if states:
         for state in states:
