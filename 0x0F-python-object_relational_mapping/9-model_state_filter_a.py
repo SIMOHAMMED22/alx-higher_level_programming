@@ -20,7 +20,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.id.in_([1, 2, 3, 5])).order_by(State.id).all()
+    query = session.query(State)
+    query = query.filter(State.id.in_([1, 2, 3, 5]))
+    query = query.order_by(State.id)
+    states = query.all()
 
     if states:
         for state in states:
