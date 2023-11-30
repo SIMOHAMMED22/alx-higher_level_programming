@@ -1,9 +1,3 @@
 #!/bin/bash
-
-# Check if a URL is provided as an argument
-if [ -z "$1" ]; then
-    echo "Please provide a URL."
-    exit 1
-fi
-
-url="$1"
+# Send a DELETE request to a given URL and display the response body.
+curl -sX DELETE "$1"
