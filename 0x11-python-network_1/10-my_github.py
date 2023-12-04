@@ -16,7 +16,7 @@ def display_user_id(username, password):
             print(f"Your GitHub user ID is: {user_data['id']}")
         else:
             print(f"Failed to retrieve user data. Status code:
-                  {response.status_code}")
+                {response.status_code}")
     except requests.RequestException as e:
         print(f"Request Error: {e}")
 
