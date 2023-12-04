@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-"""8. Search API"""
+"""sends a POST request ,query"""
+import sys
+import requests
+
 
 if __name__ == "__main__":
-    import requests
-    import sys
+    query = "" if len(sys.argv) == 1 else sys.argv[1]
+    payload = {"q": query}
 
-    url = 'http://0.0.0.0:5000/search_user'
-    arg = sys.argv[1] if len(sys.argv) == 2 else ""
-    r = requests.post(url, data={'q': arg})
+    rqst = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
-        g = r.json()
-        if g == {}:
-            print('No result')
+        response = rqst.json()
+        if response == {}:
+            print("No result")
         else:
-            print(g)
-    except Exception:
+            print("[{}] {}".format(response.get("id"), response.get("name")))
+    except ValueError:
         print("Not a valid JSON")
